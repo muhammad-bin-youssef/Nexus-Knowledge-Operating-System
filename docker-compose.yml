@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+    environment:
+      - KOS_PORT=3001
+      - KOS_BIND_ADDR=0.0.0.0
+      - KOS_DATA_DIR=/data
+    volumes:
+      - ./data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '5173:5173'
+    environment:
+      - VITE_API_URL=http://backend:3001
+    depends_on:
+      - backend

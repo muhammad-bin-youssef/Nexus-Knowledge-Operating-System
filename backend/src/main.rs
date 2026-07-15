@@ -39,7 +39,8 @@ async fn main() {
         .ok()
         .and_then(|p| p.parse().ok())
         .unwrap_or(3001);
-    let addr = SocketAddr::from(([127, 0, 0, 1], port));
+    let bind_addr = std::env::var("KOS_BIND_ADDR").unwrap_or_else(|_| "0.0.0.0".into());
+    let addr = format!("{bind_addr}:{port}").parse::<SocketAddr>().expect("invalid bind address");
 
     tracing::info!("Knowledge OS backend listening on http://{addr}");
 

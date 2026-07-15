@@ -89,6 +89,33 @@ npm run dev
 
 Then open `http://127.0.0.1:5173`.
 
+## Docker
+
+The project includes Docker support for plug-and-play startup.
+
+```bash
+docker compose up --build
+```
+
+(If your system uses the older CLI, you can also run `docker-compose up --build`.)
+
+This starts both services and publishes:
+
+- Frontend: `http://127.0.0.1:5173`
+- Backend: `http://127.0.0.1:3001`
+
+The frontend is configured to proxy `/api` to the backend container automatically.
+
+### Override backend port
+
+```bash
+KOS_PORT=3002 docker compose up --build
+```
+
+### Persistent data
+
+A local `./data` directory is mounted into the backend container so the SQLite database persists across restarts.
+
 ## Cross-Platform Notes
 
 ### Linux / macOS
