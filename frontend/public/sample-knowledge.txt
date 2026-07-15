@@ -1,0 +1,7 @@
+Knowledge graphs are powerful tools for organizing unstructured information. They represent entities as nodes and relationships as edges, making facts easier to query and explore.
+
+A simple knowledge graph can connect concepts like "Knowledge Graph", "Entity Extraction", and "Relation Discovery". Entity extraction identifies meaningful terms, relation discovery finds how those terms connect, and the graph visualizes the structure.
+
+In this system, every node carries provenance: the original text source and the excerpt that led to the fact. This makes the graph explainable and trustworthy.
+
+Import this text to see how the system chunks content into nodes and discovers relationships across the imported passages.
